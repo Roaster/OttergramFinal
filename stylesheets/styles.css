@@ -64,6 +64,7 @@ a {
     justify-content: space-between;
     padding: 0;
     list-style: none;
+    padding: 20px 0;
 
     white-space: nowrap;
     overflow-x: auto;
@@ -75,6 +76,13 @@ a {
     max-width: 120px;
     border: 1px solid rgb(100%, 100%, 100%);
     border: 1px solid rgba(100%, 100%, 100%, 0.8);
+
+    transition: transform 133ms ease-in-out;
+}
+
+.thumbnail-item:hover{
+    transform: scale(1.2);
+    
 }
 
 .thumbnail-image {
@@ -105,10 +113,38 @@ a {
 .detail-image-frame {
     text-align: center;
     position: relative;
+
+    transition: transform 333ms;
+}
+
+.nav-button{
+    height: 100px;
+    width: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.is-tiny{
+    transform: scale(0.001);
+    transition: transform 0ms;
 }
 
 .detail-image {
     width: 90%;
+}
+
+.hidden-detail .detail-image-container{
+    display: none;
+}
+
+.hidden-detail .thumbnail-list {
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden-detail .thumbnail-item{
+    max-width: 80%;
 }
 
 .detail-image-title {
@@ -120,4 +156,24 @@ a {
     bottom: -16px;
     left: 4px;
 
+}
+
+@media all and (min-width: 768px){
+    .main-content{
+        flex-direction: row;
+        overflow: hidden;
+    }
+    .thumbnail-list{
+        flex-direction: column;
+        order: 0;
+        margin-left: 20px;
+
+        padding: 0 35px;
+    }
+    .thumbnail-item{
+        max-width: 260px;
+    }
+    .thumbnail-item + .thumbnail-item{
+        margin-top: 20px;
+    }
 }
